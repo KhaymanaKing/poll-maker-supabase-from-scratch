@@ -20,29 +20,29 @@
     </header>
     <main>
         <section class="main-section">
-        <form>
+        <form class="form">
             <h2>Question</h2>
-            <input id="poll-question">
+            <input name="poll-question">
             <h3>Option One</h3>
-            <input id="option-one">
+            <input name="option-one">
             <h3>Option Two</h3>
-            <input id="option-two">
+            <input name="option-two">
             <button id="submit-poll">Submit Poll</button>
         </form>
-        <div>
-        <button id="option-one-plus">+</button>
-        <button id="option-one-minus">-</button>
-        </div>
-        <div>
-        <button id="option-two-plus">+</button>
-        <button id="option-two-minus">-</button>
-        </div>
         <div id="current-poll">Current Poll</div>
         <span id="question-text"></span>
         <span id="option-one-text"></span>
+            <div>
+            <button id="option-one-plus">+</button>
+            <button id="option-one-minus">-</button>
+            </div>
         <span id="option-two-text"></span>
-        <span id="option-one-votes">One Votes</span>
-        <span id="option-two-votes">Two Votes</span>
+            <div>
+            <button id="option-two-plus">+</button>
+            <button id="option-two-minus">-</button>
+            </div>
+        <span id="option-one-votes">0</span>
+        <span id="option-two-votes">0</span>
         </div>
         <button id="end-poll-button">End Poll</button>
         <div id ="previous-polls">Previous Results</div>
