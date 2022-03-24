@@ -89,3 +89,11 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
+section.main-section{
+    display: flex;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
