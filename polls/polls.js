@@ -1,6 +1,7 @@
 // import
+import { getPoll, createPoll } from '../fetch-utils';
 
-// import { renderPoll } from '../render';
+import { renderPoll } from '../render';
 
 const pollForm = document.querySelector('.form');
 const plusOneButton = document.querySelector('#option-one-plus');
@@ -14,6 +15,7 @@ const optionOneTextEl = document.querySelector('#option-one-text');
 const optionTwoTextEl = document.querySelector('#option-two-text');
 const questionTextEl = document.querySelector('#question-text');
 const currentPollEl = document.querySelector('#current-poll');
+const previousPollsEl = document.querySelector('#previous-polls');
 
 
 //State
@@ -73,4 +75,21 @@ function displayCurrentPoll(){
     optionTwoTextEl.textContent = optTwoInput;
     optionOneVotesEl.textContent = optOneVotes;
     optionTwoVotesEl.textContent = optTwoVotes;
+}
+
+endPollButton.addEventListener('click', async () => {
+    await 
+    displayAllPolls();
+});
+
+async function displayAllPolls(){
+    const polls = await getPoll();
+
+    previousPollsEl.textContent = '';
+
+    for (let poll of polls) {
+        const newPollEl = renderPoll(poll);
+
+        previousPollsEl.append(newPollEl);
+    }
 }

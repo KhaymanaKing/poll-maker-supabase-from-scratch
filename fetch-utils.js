@@ -7,7 +7,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 export async function createPoll(pastPoll){
     const response = await client
         .from('poll')
-        .insert('pastpoll');
+        .insert('pastPoll');
 
     return response.body;
 }
