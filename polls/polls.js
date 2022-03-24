@@ -11,10 +11,11 @@ const optionTwoVotesEl = document.querySelector('#option-two-votes');
 const optionOneTextEl = document.querySelector('#option-one-text');
 const optionTwoTextEl = document.querySelector('#option-two-text');
 const questionTextEl = document.querySelector('#question-text');
-const 
+
 
 //State
-let question = '';
+
+let pollQuest = '';
 let optOneInput = '';
 let optTwoInput = '';
 let optOneVotes = 0;
@@ -46,15 +47,17 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const pollData = new FormData(form);
-    question = pollData.get('poll-question');
+    pollQuest = pollData.get('poll-question');
     optOneInput = pollData.get('option-one');
     optTwoInput = pollData.get('option-two');
 
-    questionTextEl.textContent = question;
-    optionOneTextEl.textContent = optOneInput;
-    optionTwoTextEl.textContent = optTwoInput;
-    optionOneVotesEl.textContent = optOneVotes;
-    optionTwoVotesEl.textContent = optTwoVotes;
+
+    //will be a display poll function
+    // questionTextEl.textContent = pollQuest;
+    // optionOneTextEl.textContent = optOneInput;
+    // optionTwoTextEl.textContent = optTwoInput;
+    // optionOneVotesEl.textContent = optOneVotes;
+    // optionTwoVotesEl.textContent = optTwoVotes;
 
     form.reset();
 
