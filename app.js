@@ -2,8 +2,8 @@
 import { signUp } from './fetch-utils.js';
 import { signIn } from './fetch-utils.js';
 
-const signUpForm = document.getElementById('.sign-up');
-const loginForm = document.getElementById('.login');
+const signUpForm = document.querySelector('.sign-up');
+const loginForm = document.querySelector('.login');
 // let state
 
 // set event listeners 
@@ -14,6 +14,7 @@ signUpForm.addEventListener('submit', async (e) => {
     const signUpData = new FormData(signUpForm);
     const email = signUpData.get('sign-up-email');
     const password = signUpData.get('sign-up-password');
+    console.log(email);
     await signUp(email, password);
 
     window.location.href = './polls';
