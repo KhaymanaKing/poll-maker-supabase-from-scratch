@@ -1,6 +1,6 @@
 // import functions and grab DOM elements
 import { signUp } from './fetch-utils.js';
-
+import { signIn } from './fetch-utils.js';
 
 const signUpForm = document.getElementById('.sign-up');
 const loginForm = document.getElementById('.login');
@@ -15,6 +15,17 @@ signUpForm.addEventListener('submit', async (e) => {
     const email = signUpData.get('sign-up-email');
     const password = signUpData.get('sign-up-password');
     await signUp(email, password);
+
+    window.location.href = './polls';
+});
+
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const loginData = new FormData(signUpForm);
+    const email = loginData.get('login-email');
+    const password = loginData.get('login-password');
+    await signIn(email, password);
 
     window.location.href = './polls';
 });
