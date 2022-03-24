@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import {} from './fetch-utils.js';
+import { signUp } from './fetch-utils.js';
 
 
 const signUpForm = document.getElementById('.sign-up');
@@ -8,7 +8,7 @@ const loginForm = document.getElementById('.login');
 
 // set event listeners 
 
-signUpForm.addEventListener('submit', async(e) => {
+signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const signUpData = new FormData(signUpForm);

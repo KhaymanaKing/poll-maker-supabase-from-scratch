@@ -19,3 +19,20 @@ export async function getPoll(){
 
     return response.body;
 }
+
+export async function signUp(email, password){
+    const response = await client.auth.signUp({
+        email: email,
+        password: password,
+    });
+    return response; 
+
+}
+
+export async function signIn(email, password){
+    const response = await client.auth.signIn({
+        email: email,
+        password: password,
+    });
+    return response; 
+}
