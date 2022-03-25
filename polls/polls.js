@@ -1,7 +1,7 @@
 // import
-import { getPoll, createPoll } from '../fetch-utils';
+import { getPoll, createPoll } from '../fetch-utils.js';
 
-import { renderPoll } from '../render';
+import { renderPoll } from '../render.js';
 
 const pollForm = document.querySelector('.form');
 const plusOneButton = document.querySelector('#option-one-plus');
@@ -54,28 +54,30 @@ pollForm.addEventListener('submit', (e) => {
     const pollData = new FormData(pollForm);
 
     pollQuest = pollData.get('poll-question');
+    console.log(pollQuest);
     optOneInput = pollData.get('option-one');
     optOneVotes = pollData.get('option-one-votes');
     optTwoInput = pollData.get('option-two');
     optTwoVotes = pollData.get('option-two-votes');
 
+    
+    questionTextEl.textContent = pollQuest;
+    optionOneTextEl.textContent = optOneInput;
+    optionTwoTextEl.textContent = optTwoInput;
+    optionOneVotesEl.textContent = optOneVotes;
+    optionTwoVotesEl.textContent = optTwoVotes;
 
 
-    displayCurrentPoll();
+    // displayCurrentPoll();
     //will be a display poll function
 
 
     pollForm.reset();
 
 });
-function displayCurrentPoll(){
-    currentPollEl.textContent = '';
-    questionTextEl.textContent = pollQuest;
-    optionOneTextEl.textContent = optOneInput;
-    optionTwoTextEl.textContent = optTwoInput;
-    optionOneVotesEl.textContent = optOneVotes;
-    optionTwoVotesEl.textContent = optTwoVotes;
-}
+// function displayCurrentPoll(){
+
+// }
 
 endPollButton.addEventListener('click', async () => {
     await 
@@ -93,3 +95,5 @@ async function displayAllPolls(){
         previousPollsEl.append(newPollEl);
     }
 }
+
+// displayCurrentPoll();

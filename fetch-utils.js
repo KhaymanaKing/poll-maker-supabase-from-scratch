@@ -7,7 +7,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 export async function createPoll(pastPoll){
     const response = await client
         .from('poll')
-        .insert('pastPoll');
+        .insert(pastPoll);
 
     return response.body;
 }
@@ -15,7 +15,7 @@ export async function createPoll(pastPoll){
 export async function getPoll(){
     const response = await client
         .from('poll')
-        .insert('*');
+        .select('*');
 
     return response.body;
 }
@@ -25,7 +25,7 @@ export async function signUp(email, password){
         email: email,
         password: password,
     });
-    return response; 
+    return response.user; 
 
 }
 
@@ -34,5 +34,10 @@ export async function signIn(email, password){
         email: email,
         password: password,
     });
-    return response; 
+    return response.user; 
+}
+
+export async function getUser(){
+    return client.auth.session();
+
 }
