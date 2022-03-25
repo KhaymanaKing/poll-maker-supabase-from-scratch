@@ -1,5 +1,5 @@
 // import
-import { getPoll, createPoll, getUser } from '../fetch-utils.js';
+import { getPoll, createPoll, getUser, logout } from '../fetch-utils.js';
 
 import { renderPoll } from '../render.js';
 
@@ -16,7 +16,7 @@ const optionTwoTextEl = document.querySelector('#option-two-text');
 const questionTextEl = document.querySelector('#question-text');
 // const currentPollEl = document.querySelector('#current-poll');
 const previousPollsEl = document.querySelector('#previous-polls');
-
+const logOutButton = document.getElementById('logout');
 
 //State
 
@@ -102,4 +102,7 @@ window.addEventListener('load', async () =>{
     await getPoll();
 });
 
+logOutButton.addEventListener('click', async ()=> {
+    await logout();
+});
 displayCurrentPoll();

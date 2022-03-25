@@ -5,6 +5,7 @@ import { signIn } from './fetch-utils.js';
 const signUpForm = document.querySelector('.sign-up');
 const loginForm = document.querySelector('.login');
 
+
 // let state
 
 // set event listeners 
@@ -16,7 +17,6 @@ signUpForm.addEventListener('submit', async (e) => {
     const signUpData = new FormData(signUpForm);
     const email = signUpData.get('sign-up-email');
     const password = signUpData.get('sign-up-password');
-
     
 
     await signUp(email, password);
@@ -24,7 +24,7 @@ signUpForm.addEventListener('submit', async (e) => {
     const user = await getUser();
     if (user) {
     
-        window.location.href = './polls';
+        window.location.replace('./polls');
     } 
     
 });
@@ -44,6 +44,9 @@ loginForm.addEventListener('submit', async (e) => {
     } 
 
 });
+
+
+
   // get user input
   // use user input to update state 
   // update DOM to reflect the new state

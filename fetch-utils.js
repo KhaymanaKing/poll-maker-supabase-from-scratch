@@ -50,3 +50,9 @@ export async function getUser(){
     return client.auth.session();
 
 }
+
+export async function logout() {
+    await client.auth.signOut();
+
+    return window.location.href = '../';
+}
