@@ -99,7 +99,14 @@ async function displayAllPolls(){
 }
 
 window.addEventListener('load', async () =>{
-    await getPoll();
+    const polls = await getPoll();
+
+    previousPollsEl.textContent = '';
+    for (let poll of polls) {
+        const newPollEl = renderPoll(poll);
+        previousPollsEl.append(newPollEl);
+    }
+
 });
 
 logOutButton.addEventListener('click', async ()=> {
