@@ -5,7 +5,6 @@ import { signIn } from './fetch-utils.js';
 const signUpForm = document.querySelector('.sign-up');
 const loginForm = document.querySelector('.login');
 
-console.log(signUpForm);
 // let state
 
 // set event listeners 

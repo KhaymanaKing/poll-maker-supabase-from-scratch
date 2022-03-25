@@ -4,10 +4,19 @@ const SUPABASE_URL = 'https://lgzsfsqaohtkvywluksc.supabase.co';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-export async function createPoll(pastPoll){
+export async function createPoll(pollQuest, optOneInput, optTwoInput,
+    optOneVotes, optTwoVotes) {
     const response = await client
         .from('poll')
-        .insert(pastPoll);
+        .insert([
+            {
+                question: pollQuest,
+                option_one: optOneInput,
+                option_two: optTwoInput,
+                option_one_votes: optOneVotes,
+                option_two_votes: optTwoVotes
+            },
+        ]);
 
     return response.body;
 }

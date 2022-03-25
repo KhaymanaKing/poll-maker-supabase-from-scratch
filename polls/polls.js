@@ -1,5 +1,5 @@
 // import
-import { getPoll, createPoll } from '../fetch-utils.js';
+import { getPoll, createPoll, getUser } from '../fetch-utils.js';
 
 import { renderPoll } from '../render.js';
 
@@ -14,7 +14,7 @@ const optionTwoVotesEl = document.querySelector('#option-two-votes');
 const optionOneTextEl = document.querySelector('#option-one-text');
 const optionTwoTextEl = document.querySelector('#option-two-text');
 const questionTextEl = document.querySelector('#question-text');
-const currentPollEl = document.querySelector('#current-poll');
+// const currentPollEl = document.querySelector('#current-poll');
 const previousPollsEl = document.querySelector('#previous-polls');
 
 
@@ -26,6 +26,7 @@ let optTwoInput = '';
 let optOneVotes = 0;
 let optTwoVotes = 0;
 
+getUser();
 
 plusOneButton.addEventListener('click', () => {
     optOneVotes++;
@@ -54,33 +55,34 @@ pollForm.addEventListener('submit', (e) => {
     const pollData = new FormData(pollForm);
 
     pollQuest = pollData.get('poll-question');
-    console.log(pollQuest);
     optOneInput = pollData.get('option-one');
     optOneVotes = pollData.get('option-one-votes');
     optTwoInput = pollData.get('option-two');
     optTwoVotes = pollData.get('option-two-votes');
 
-    
-    questionTextEl.textContent = pollQuest;
-    optionOneTextEl.textContent = optOneInput;
-    optionTwoTextEl.textContent = optTwoInput;
-    optionOneVotesEl.textContent = optOneVotes;
-    optionTwoVotesEl.textContent = optTwoVotes;
 
-
-    // displayCurrentPoll();
+    displayCurrentPoll();
     //will be a display poll function
 
 
     pollForm.reset();
 
 });
-// function displayCurrentPoll(){
+function displayCurrentPoll(){
+    questionTextEl.textContent = pollQuest;
+    optionOneTextEl.textContent = optOneInput;
+    optionTwoTextEl.textContent = optTwoInput;
+    optionOneVotesEl.textContent = optOneVotes;
+    optionTwoVotesEl.textContent = optTwoVotes;
 
-// }
+}
 
 endPollButton.addEventListener('click', async () => {
-    await 
+    await createPoll(pollQuest,
+        optOneInput,
+        optTwoInput,
+        optOneVotes,
+        optTwoVotes);
     displayAllPolls();
 });
 
@@ -96,4 +98,4 @@ async function displayAllPolls(){
     }
 }
 
-// displayCurrentPoll();
+displayCurrentPoll();
