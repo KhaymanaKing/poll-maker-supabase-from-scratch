@@ -8,11 +8,11 @@ export function renderPoll(poll){
 
     div.classList.add('polls');
 
-    questionDiv.textContent = poll.pollQuest;
-    optionOneDiv.textContent = poll.optOneInput;
-    optionTwoDiv.textContent = poll.optTwoInput;
-    oneVotes.textContent = poll.optOneVotes;
-    twoVotes.textContent = poll.optTwoVotes;
+    questionDiv.textContent = poll.question;
+    optionOneDiv.textContent = poll.option_one;
+    optionTwoDiv.textContent = poll.option_two;
+    oneVotes.textContent = poll.option_one_votes;
+    twoVotes.textContent = poll.option_two_votes;
 
     div.append(
         questionDiv,

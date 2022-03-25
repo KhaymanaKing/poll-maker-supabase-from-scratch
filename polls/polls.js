@@ -90,12 +90,16 @@ async function displayAllPolls(){
     const polls = await getPoll();
 
     previousPollsEl.textContent = '';
-
+    
     for (let poll of polls) {
         const newPollEl = renderPoll(poll);
 
         previousPollsEl.append(newPollEl);
     }
 }
+
+window.addEventListener('load', async () =>{
+    await getPoll();
+});
 
 displayCurrentPoll();

@@ -24,9 +24,9 @@ export async function createPoll(pollQuest, optOneInput, optTwoInput,
 export async function getPoll(){
     const response = await client
         .from('poll')
-        .select('*');
+        .select();
 
-    return response.body;
+    return response.data;
 }
 
 export async function signUp(email, password){
