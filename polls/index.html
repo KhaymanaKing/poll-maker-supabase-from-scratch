@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <button id="logout">Log Out</button>
+        <div class="gutter-right logo">
+            <img src="../assets/big-logo.png" />
+        </div>
+    </header>
+    <main>
+        <section class="main-section">
+        <form class="form">
+            <h2>Question</h2>
+            <input id="poll-question" name="poll-question">
+            <h3>Option One</h3>
+            <input name="option-one">
+            <h3>Option Two</h3>
+            <input name="option-two">
+            <button id="submit-poll">Submit Poll</button>
+        </form>
+        <div id="current-poll">Current Poll</div>
+        <span id="question-text"></span>
+        <span id="option-one-text"></span>
+            <div>
+            <button id="option-one-plus">+</button>
+            <button id="option-one-minus">-</button>
+            </div>
+        <span id="option-two-text"></span>
+            <div>
+            <button id="option-two-plus">+</button>
+            <button id="option-two-minus">-</button>
+            </div>
+        <span id="option-one-votes">0</span>
+        <span id="option-two-votes">0</span>
+        </div>
+        <button id="end-poll-button">End Poll</button>
+        <div id ="previous-polls">Previous Results</div>
+        </section>
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
+    </footer>
+
+    <script type="module" src="./polls.js"></script>
+</body>
+
+</html>
